@@ -2,9 +2,12 @@ package cn.zsk.common_core.base.app;
 
 import android.app.Application;
 
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.pedaily.yc.ycdialoglib.toast.ToastUtils;
 
+import butterknife.internal.Utils;
 import cn.ycbjie.ycthreadpoollib.PoolThread;
+import cn.zsk.common_core.BuildConfig;
 import cn.zsk.common_core.base.callback.BaseLifecycleCallback;
 import cn.zsk.common_core.base.callback.LogCallback;
 import cn.zsk.common_core.constant.Constant;
@@ -40,8 +43,20 @@ public enum AppConfig {
         BaseLifecycleCallback.getInstance().init(application);
         //初始化线程池
         initThreadPool();
+        //初始化路由
+        initARouter();
     }
 
+    private void initARouter() {
+        if(BuildConfig.IS_DEBUG){
+            //打印日志
+            ARouter.openLog();
+            //开启调试模式(如果在InstantRun模式下运行，必须开启调试模式！线上版本需要关闭,否则有安全风险)
+            ARouter.openDebug();
+        }
+        //推荐在Application中初始化
+        ARouter.init(mApplication);
+    }
 
 
     /**
@@ -59,7 +74,7 @@ public enum AppConfig {
     }
 
     /**
-     * 获取线程池管理器对下个，同意维护所有的线程池
+     * 获取线程池管理器对下个，同一维护所有的线程池
      *
      * @return
      */

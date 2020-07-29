@@ -17,6 +17,7 @@ android {
         javaCompileOptions {
             annotationProcessorOptions {
                 includeCompileClasspath = true
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
             }
         }
     }
@@ -77,9 +78,9 @@ dependencies {
     api rootProject.ext.netWorkLibs
     api rootProject.ext.butterKnifeLibs
     // api rootProject.ext.daggerLibs
-    // api rootProject.ext.routerLibs
+     api rootProject.ext.routerLibs
     // annotationProcessor rootProject.ext.daggerCompiler
-    //annotationProcessor rootProject.ext.routerCompiler
+    annotationProcessor rootProject.ext.routerCompiler
     annotationProcessor rootProject.ext.butterknifeCompiler
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 }

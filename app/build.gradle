@@ -29,7 +29,6 @@ android {
     }
 
 
-
     //jdk1.8
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -38,6 +37,9 @@ android {
 }
 
 dependencies {
+    if (!rootProject.ext.isModuleNewsApplication) {
+        implementation project(':module_dynamic_news')
+    }
     implementation project(':common_core')
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     annotationProcessor rootProject.ext.routerCompiler
