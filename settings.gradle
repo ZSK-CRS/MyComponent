@@ -1,0 +1,2 @@
+include ':app', ':common_core', ':module_dynamic_news'
+rootProject.name='MyComponent'

@@ -1,0 +1,85 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion rootProject.ext.android["compileSdkVersion"]
+    buildToolsVersion rootProject.ext.android["buildToolsVersion"]
+
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.android["minSdkVersion"]
+        targetSdkVersion rootProject.ext.android["targetSdkVersion"]
+        versionCode rootProject.ext.android["versionCode"]
+        versionName rootProject.ext.android["versionName"]
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles 'consumer-rules.pro'
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                includeCompileClasspath = true
+            }
+        }
+    }
+
+    buildTypes {
+        //正式
+        release {
+            buildConfigField "boolean", "IS_DEBUG", "false"
+            buildConfigField "String", "buildTime", "\"" + releaseTime() + "\""
+
+            minifyEnabled false
+            // 移除无用的resource文件
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+
+        //仿真
+        release {
+            buildConfigField "boolean", "IS_DEBUG", "false"
+            buildConfigField "String", "buildTime", "\"" + releaseTime() + "\""
+
+            minifyEnabled false
+            // 移除无用的resource文件
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+
+        //测试
+        debug {
+            buildConfigField "boolean", "IS_DEBUG", "false"
+            buildConfigField "String", "buildTime", "\"" + releaseTime() + "\""
+
+            minifyEnabled false
+            // 移除无用的resource文件
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    //jdk1.8
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+
+    lintOptions {
+        abortOnError false
+    }
+}
+
+static def releaseTime() {
+    return new Date().format("MMddHHmmss", TimeZone.getTimeZone("Asia/Beijing"))
+}
+
+dependencies {
+    api rootProject.ext.otherLibs
+    api rootProject.ext.netWorkLibs
+    api rootProject.ext.butterKnifeLibs
+    // api rootProject.ext.daggerLibs
+    // api rootProject.ext.routerLibs
+    // annotationProcessor rootProject.ext.daggerCompiler
+    //annotationProcessor rootProject.ext.routerCompiler
+    annotationProcessor rootProject.ext.butterknifeCompiler
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+}
