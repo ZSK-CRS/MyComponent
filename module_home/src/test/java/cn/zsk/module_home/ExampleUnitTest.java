@@ -1,4 +1,4 @@
-package cn.zsk.module_dynamic_news;
+package cn.zsk.module_home;
 
 import org.junit.Test;
 

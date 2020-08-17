@@ -1,2 +1,2 @@
-include ':app', ':common_core', ':module_dynamic_news'
+include ':app', ':common_core', ':module_home'
 rootProject.name='MyComponent'

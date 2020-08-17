@@ -10,7 +10,7 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/common_core" />
-            <option value="$PROJECT_DIR$/module_dynamic_news" />
+            <option value="$PROJECT_DIR$/module_home" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
