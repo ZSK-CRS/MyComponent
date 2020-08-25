@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">module_home</string>
+
+
+    <string name="tab_1">首页</string>
+    <string name="tab_2">消息</string>
+    <string name="tab_3">动态</string>
+    <string name="tab_4">我的</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="drawer_open">Open</string>
+    <string name="drawer_close">Close</string>
+
 </resources>

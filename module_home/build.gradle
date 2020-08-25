@@ -10,7 +10,7 @@ android {
     buildToolsVersion rootProject.ext.android["buildToolsVersion"]
 
     defaultConfig {
-        if(rootProject.ext.isModuleNewsApplication){
+        if (rootProject.ext.isModuleNewsApplication) {
             applicationId "cn.zsk.module_dynamic_news"
         }
         minSdkVersion rootProject.ext.android["minSdkVersion"]
@@ -28,6 +28,7 @@ android {
 
         // 64k
         multiDexEnabled true
+        vectorDrawables.useSupportLibrary = true
     }
 
     sourceSets {
@@ -54,10 +55,13 @@ android {
         }
     }
 
+
 }
 
 dependencies {
-    implementation project(path: ':common_core')
+    implementation project(path: ':library_core')
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    //首页切换组件
+    implementation 'com.github.yalantis:Side-Menu.Android:1.0.2'
     annotationProcessor rootProject.ext.routerCompiler
 }

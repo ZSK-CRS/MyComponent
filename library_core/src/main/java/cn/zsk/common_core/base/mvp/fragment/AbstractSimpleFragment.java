@@ -22,7 +22,7 @@ public abstract class AbstractSimpleFragment extends Fragment {
 
     private Unbinder unbinder;
 
-    private View rootView;
+    protected View rootView;
 
     @Nullable
     @Override
@@ -31,7 +31,7 @@ public abstract class AbstractSimpleFragment extends Fragment {
         unbinder =  ButterKnife.bind(this,rootView);
         requestPermissons();
         attachView();
-        initPatams();
+        initParams();
         initData();
         initListener();
         return rootView;
@@ -47,7 +47,7 @@ public abstract class AbstractSimpleFragment extends Fragment {
 
     protected abstract void initData();
 
-    protected void initPatams(){}
+    protected void initParams(){}
 
     @Override
     public void onDestroyView() {

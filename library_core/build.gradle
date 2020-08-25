@@ -11,6 +11,7 @@ android {
         versionCode rootProject.ext.android["versionCode"]
         versionName rootProject.ext.android["versionName"]
 
+
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles 'consumer-rules.pro'
 
@@ -78,7 +79,7 @@ dependencies {
     api rootProject.ext.netWorkLibs
     api rootProject.ext.butterKnifeLibs
     // api rootProject.ext.daggerLibs
-     api rootProject.ext.routerLibs
+    api rootProject.ext.routerLibs
     // annotationProcessor rootProject.ext.daggerCompiler
     annotationProcessor rootProject.ext.routerCompiler
     annotationProcessor rootProject.ext.butterknifeCompiler
