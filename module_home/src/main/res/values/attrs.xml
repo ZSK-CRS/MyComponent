@@ -4,4 +4,11 @@
         <attr name="shadow_length" format="float|reference" />
         <attr name="corner_radius" format="float|reference" />
     </declare-styleable>
+
+    <!-- RewardAnim -->
+    <declare-styleable name="RewardLayout">
+        <attr name="max_gift" format="integer" />
+        <attr name="gift_item_layout" format="reference" />
+    </declare-styleable>
+
 </resources>

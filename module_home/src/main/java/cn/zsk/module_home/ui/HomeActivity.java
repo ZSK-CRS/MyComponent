@@ -164,7 +164,7 @@ public class HomeActivity extends BaseActivity implements ViewAnimator.ViewAnima
         animator.setInterpolator(new AccelerateInterpolator());
         animator.setDuration(ViewAnimator.CIRCULAR_REVEAL_ANIMATION_DURATION);
 
-        findViewById(R.id.content_overlay).setBackground(new BitmapDrawable(getResources(), screenShotable.getBitmap()));
+        //findViewById(R.id.content_overlay).setBackground(new BitmapDrawable(getResources(), screenShotable.getBitmap()));
         animator.start();
         ContentFragment contentFragment = ContentFragment.newInstance(this.res);
         getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, contentFragment).commit();
