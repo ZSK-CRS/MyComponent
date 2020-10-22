@@ -148,11 +148,11 @@ public class HomeActivity extends BaseActivity implements ViewAnimator.ViewAnima
         if (drawerToggle.onOptionsItemSelected(item)) {
             return true;
         }
-        switch (item.getItemId()) {
-            case R.id.action_settings:
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+
+        if (item.getItemId() == R.id.action_settings){
+            return true;
+        } else {
+            return super.onOptionsItemSelected(item);
         }
     }
 
